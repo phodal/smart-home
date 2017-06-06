@@ -27,7 +27,20 @@ pip3 install --upgrade homeassistant
 运行
 
 ```
-https://home-assistant.io/docs/installation/virtualenv/
+sudo -u homeassistant -H /srv/homeassistant/bin/hass
+```
+
+并不没工作，233
+
+```
+curl -O https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh && sudo chown pi:pi hass_rpi_installer.sh && bash hass_rpi_installer.sh
+```
+
+在我的 MBP 上安装尝试
+
+```
+pip3 install homeassistant
+hass --open-ui
 ```
 
 LICENSE
