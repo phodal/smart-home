@@ -16,6 +16,12 @@ Images: [https://home-assistant.io/docs/hassbian/installation/](https://home-ass
 Images Downloader: [https://etcher.io/](https://etcher.io/)
 
 
+文档有问题。233
+
+```
+pip3 install --upgrade homeassistant
+```
+
 LICENSE
 ---
 
