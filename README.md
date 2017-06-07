@@ -7,6 +7,11 @@
  - Broadlink RM Pro
  - Yeelight
  - Raspberry Pi 2
+ 
+Tools:
+
+ - [Alexa Skill Testing Tool](https://echosim.io/)
+ - [Raspberry Pi Burn images Tools](https://etcher.io/)
 
 ESP8266 仿真 Wemo
 ---
