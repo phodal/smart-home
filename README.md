@@ -6,6 +6,7 @@
  - NodeMCU
  - Broadlink RM Pro
  - Yeelight
+ - Raspberry Pi 2
 
 ESP8266 仿真 Wemo
 ---
@@ -35,6 +36,14 @@ Setup 步骤：
  - 烧录
 
 相似项目 Arduino Esp8266 Alexa Wemo switch emulator：https://github.com/witnessmenow/esp8266-alexa-wemo-emulator
+
+Raspberry Pi Android Things
+---
+
+
+Raspberry Pi Windows 10 IoT
+---
+
 
 Raspberry Pi Home Assistant
 ---
