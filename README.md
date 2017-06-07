@@ -111,6 +111,85 @@ switch:
 5. 执行第一步代码中的脚本，``python getBroadlinkSharedData.py``
 6. 安装``python-broadlink``，地址 ``https://github.com/mjg59/python-broadlink.git``
 
+Homebridge
+---
+
+编辑软件源
+
+```
+sudo vim /etc/apt/sources.list
+```
+
+修改为：
+
+```
+deb http://mirrors.aliyun.com/raspbian/raspbian/ jessie main non-free contrib
+deb-src http://mirrors.aliyun.com/raspbian/raspbian/ jessie main non-free contrib
+```
+
+安装 Node.js ARM 版 ：
+
+```
+curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
+安装 avahi
+
+```
+sudo apt-get install libavahi-compat-libdnssd-dev
+```
+
+安装 homebridge
+
+```
+npm install -g homebridge 
+```
+
+### 开机启动
+
+在 /etc/default 目录下创建 homebridge 文件，内容如下：
+
+```
+# Defaults / Configuration options for homebridge
+# The following settings tells homebridge where to find the config.json file and where to persist the data (i.e. pairing and others)
+HOMEBRIDGE_OPTS=-U /var/lib/homebridge
+
+# If you uncomment the following line, homebridge will log more 
+# You can display this via systemd's journalctl: journalctl -f -u homebridge
+# DEBUG=*
+```
+
+在 /etc/systemd/system 目录下创建 homebridge.service 文件，内容如下：
+
+```
+[Unit]
+Description=Node.js HomeKit Server 
+After=syslog.target network-online.target
+
+[Service]
+Type=simple
+User=homebridge
+EnvironmentFile=/etc/default/homebridge
+# Adapt this to your specific setup (could be /usr/bin/homebridge)
+# See comments below for more information
+ExecStart=/usr/local/bin/homebridge $HOMEBRIDGE_OPTS
+Restart=on-failure
+RestartSec=10
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
+```
+
+启动服务
+
+```
+systemctl daemon-reload
+systemctl enable homebridge
+systemctl start homebridge
+```
+
 Amazon Echo 设置
 ---
 
