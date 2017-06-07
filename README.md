@@ -85,6 +85,32 @@ pip3 install homeassistant
 hass --open-ui
 ```
 
+Home Assistant Broadlink PM PRO
+---
+
+在 ``configuration.yaml`` 文件中添加下面的配置：
+
+```
+# Example configuration.yaml entry
+switch:
+  - platform: broadlink
+    host: IP_ADDRESS
+    mac: 'MAC_ADDRESS'
+    switches:
+      reciever:
+        command_on: 'switch_packet on'
+        command_off: 'switch_packet off'
+```        
+
+### 获取 Broadlink 配置
+
+1. 从 [https://github.com/NightRang3r/Broadlink-e-control-db-dump](https://github.com/NightRang3r/Broadlink-e-control-db-dump) 获取数据导出脚本
+2. 打开 易控（英语：E-Control） 应用，点击``菜单`` -> ``共享`` -> ``云分享`` 就会生成相应的配置文件
+3. 浏览手机上的 ``/broadlink/newremote/SharedData/`` 目录，复制出 ``jsonSubIr``、``jsonButton``、``jsonIrCode`` 三个文件
+4. 安装好 python 环境， 并安装 ``pip install simplejson``
+5. 执行第一步代码中的脚本，``python getBroadlinkSharedData.py``
+6. 安装``python-broadlink``，地址 ``https://github.com/mjg59/python-broadlink.git``
+
 Amazon Echo 设置
 ---
 
