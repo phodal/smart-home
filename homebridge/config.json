@@ -1,8 +1,45 @@
 {
-        "bridge": {
-                "name": "Homebridge",
-                "username": "CC:22:3D:E3:CE:30",
-                "port": 51826,
-                "pin": "031-45-154"
+    "bridge": {
+        "name": "Homebridge",
+        "pin": "031-45-154",
+        "port": 51826,
+        "username": "B8:27:EB:EC:5D:80"
+    },
+    "platforms": [
+        {
+            "host": "http://192.168.199.242:8123",
+            "logging": true,
+            "name": "HomeAssistant",
+            "password": "raspberry",
+            "platform": "HomeAssistant",
+            "supported_types": [
+                "binary_sensor",
+                "climate",
+                "cover",
+                "device_tracker",
+                "fan",
+                "group",
+                "input_boolean",
+                "light",
+                "lock",
+                "media_player",
+                "scene",
+                "sensor",
+                "switch"
+            ]
+        },
+        {
+            "accessories": [
+                {
+                    "data": {
+                        "off": "2600d800000128921237113813111311111311131335123712371435123712121212121213111212121212121212131112121237113811371213111212131113111311131113111311131112121311131113111212371212121212121212121212121212121212121212121212121237123712121237123711381137123712121212123712371212121212121212121212121212121212121212123712121113121211381113111311131113111311131113111311131113113811371237121212121212121212121212123712121212123712121237111312000d05"
+                    },
+                    "name": "Air Conditioner",
+                    "type": "air-conditioner"
+                }
+            ],
+            "name": "Broadlink RM",
+            "platform": "BroadlinkRM"
         }
+    ]
 }
