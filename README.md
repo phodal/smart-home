@@ -121,6 +121,7 @@ Homebridge
  - Broadlink RM：homebridge-broadlink-rm 
  - Broadlink SP: homebridge-broadlink-sp
  - Home Assistant: homebridge-homeassistant
+ - ESP8266 as Wemo: homebridge-platform-wemo
 
 编辑软件源
 
@@ -160,6 +161,7 @@ sudo npm install -g homebridge-yeelight
 sudo npm install -g homebridge-homeassistant
 sudo npm install -g homebridge-broadlink-sp
 sudo npm install -g homebridge-broadlink-rm
+sudo npm install -g homebridge-platform-wemo
 ```
 
 ### 开机启动

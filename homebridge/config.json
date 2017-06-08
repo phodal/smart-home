@@ -29,6 +29,10 @@
             ]
         },
         {
+           "platform": "BelkinWeMo",
+           "name": "WeMo Platform"
+        },
+        {
             "accessories": [
                 {
                     "data": {
