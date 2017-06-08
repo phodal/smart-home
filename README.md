@@ -42,11 +42,21 @@ Setup 步骤：
 
 相似项目 Arduino Esp8266 Alexa Wemo switch emulator：https://github.com/witnessmenow/esp8266-alexa-wemo-emulator
 
-Raspberry Pi Android Things
+小米智能插座
 ---
 
+寻找设备
 
-Raspberry Pi Windows 10 IoT
+```
+npm install -g miio
+miio --discover
+```
+
+```
+npm install --save miio
+```
+
+Raspberry Pi Siri
 ---
 
 
@@ -227,6 +237,8 @@ Amazon Echo 设置
 ---
 
 我用的是 Amazon Echo Dot 2 就是那个 Mini 版的
+
+ - 安装 Yeelight Skill
 
 结合 HomeAssisatant 和 Amazon Echo
 ---
