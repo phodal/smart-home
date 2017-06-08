@@ -153,6 +153,12 @@ sudo apt-get install libavahi-compat-libdnssd-dev
 npm install -g homebridge 
 ```
 
+
+```
+sudo npm install -g homebridge-aqara
+sudo npm install -g homebridge-homeassistant
+```
+
 ### 开机启动
 
 在 /etc/default 目录下创建 homebridge 文件，内容如下：
