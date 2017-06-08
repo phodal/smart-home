@@ -114,6 +114,12 @@ switch:
 Homebridge
 ---
 
+插件：
+
+ - Yeelight：homebridge-yeelight
+ - 小米设备：homebridge-aqara
+ - Broadlink RM：homebridge-broadlink-rm 
+
 编辑软件源
 
 ```
