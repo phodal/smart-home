@@ -1,4 +1,11 @@
 {
+    "accessories": [
+        {
+            "accessory": "broadlinkSP",
+            "ip": "192.168.199.196",
+            "name": "Broadlink SP3"
+        }
+    ],
     "bridge": {
         "name": "Homebridge",
         "pin": "031-45-154",
@@ -29,8 +36,8 @@
             ]
         },
         {
-           "platform": "BelkinWeMo",
-           "name": "WeMo Platform"
+            "name": "WeMo Platform",
+            "platform": "BelkinWeMo"
         },
         {
             "accessories": [
