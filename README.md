@@ -119,6 +119,7 @@ Homebridge
  - Yeelight：homebridge-yeelight
  - 小米设备：homebridge-aqara
  - Broadlink RM：homebridge-broadlink-rm 
+ - Home Assistant: homebridge-homeassistant
 
 编辑软件源
 
@@ -194,6 +195,21 @@ WantedBy=multi-user.target
 systemctl daemon-reload
 systemctl enable homebridge
 systemctl start homebridge
+```
+
+### 配置 Home Assistant
+
+```
+"platforms": [
+  {
+    "platform": "HomeAssistant",
+    "name": "HomeAssistant",
+    "host": "http://127.0.0.1:8123",
+    "password": "yourapipassword",
+    "supported_types": ["binary_sensor", "climate", "cover", "device_tracker", "fan", "group", "input_boolean", "light", "lock", "media_player", "scene", "sensor", "switch"],
+    "logging": true
+  }
+]
 ```
 
 Amazon Echo 设置
