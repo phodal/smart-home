@@ -119,6 +119,7 @@ Homebridge
  - Yeelight：homebridge-yeelight
  - 小米设备：homebridge-aqara
  - Broadlink RM：homebridge-broadlink-rm 
+ - Broadlink SP: homebridge-broadlink-sp
  - Home Assistant: homebridge-homeassistant
 
 编辑软件源
@@ -155,8 +156,10 @@ npm install -g homebridge
 
 
 ```
-sudo npm install -g homebridge-aqara
+sudo npm install -g homebridge-yeelight
 sudo npm install -g homebridge-homeassistant
+sudo npm install -g homebridge-broadlink-sp
+sudo npm install -g homebridge-broadlink-rm
 ```
 
 ### 开机启动
