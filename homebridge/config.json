@@ -60,6 +60,7 @@
                             "pseudo-mode": "heat"
                         }
                     },
+                    "maxTemperature": 32,
                     "name": "Air Conditioner",
                     "type": "air-conditioner"
                 }
