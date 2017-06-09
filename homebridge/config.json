@@ -14,6 +14,13 @@
     },
     "platforms": [
         {
+            "name": "XiaomiMiio",
+            "platform": "XiaomiMiio",
+            "pollChanges": true,
+            "pollInterval": 15,
+            "searchInterval": 1800
+        },
+        {
             "host": "http://192.168.199.242:8123",
             "logging": true,
             "name": "HomeAssistant",

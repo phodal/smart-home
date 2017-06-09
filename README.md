@@ -172,6 +172,7 @@ sudo npm install -g homebridge-homeassistant
 sudo npm install -g homebridge-broadlink-sp
 sudo npm install -g homebridge-broadlink-rm
 sudo npm install -g homebridge-platform-wemo
+sudo npm install -g homebridge-miio
 ```
 
 ### 开机启动
