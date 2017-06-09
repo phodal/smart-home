@@ -10,6 +10,11 @@ light:
 
 switch:
   - platform: broadlink
+    host: 192.168.199.196
+    mac: '34:EA:34:B8:2F:C6'
+    type:  sp3
+    friendly_name: 'Humo'
+  - platform: broadlink
     host: 192.168.199.185
     mac: 'B4:43:0D:C7:3A:F9'
     switches:
