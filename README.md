@@ -1,5 +1,7 @@
 # Phodal's Smart Home
 
+视频演示地址：[腾讯视频](https://v.qq.com/x/page/r0512ss7xc9.html)
+
 设备：
 
  - Amazone Echo Dot
@@ -7,6 +9,7 @@
  - Broadlink RM Pro
  - Yeelight
  - Raspberry Pi 2
+ - Android、iOS 设备
  
 Tools:
 
@@ -55,10 +58,6 @@ miio --discover
 ```
 npm install --save miio
 ```
-
-Raspberry Pi Siri
----
-
 
 Raspberry Pi Home Assistant
 ---
@@ -239,13 +238,24 @@ Amazon Echo 设置
 
 我用的是 Amazon Echo Dot 2 就是那个 Mini 版的
 
- - 安装 Yeelight Skill
+ - 安装 Yeelight Skill 
 
 结合 HomeAssisatant 和 Amazon Echo
 ---
 
 文档：[https://home-assistant.io/components/alexa/](https://home-assistant.io/components/alexa/)
 
+
+### 只开关设备
+
+使用 Home Assistant 的 **Emulated Hue** 组件就可以了，添加如下的配置：
+
+```
+emulated_hue:
+  host_ip: 192.168.199.242
+```
+
+其中的 ``192.168.199.242`` 即是 Home Assistant 的服务器地址
 
 LICENSE
 ---
