@@ -257,6 +257,13 @@ emulated_hue:
 
 其中的 ``192.168.199.242`` 即是 Home Assistant 的服务器地址
 
+
+Raspberry Pi Cornata
+---
+
+1.下载 Windows 10 IoT Core Dashboard
+2.打开 Windows 10 IoT Core Dashboard，为 RPi 烧录镜像，如下图所示：
+
 LICENSE
 ---
 
