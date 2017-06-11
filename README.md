@@ -273,7 +273,15 @@ Raspberry Pi Cornata
 
 ![Windows 10 IoT Dashboard](https://az835927.vo.msecnd.net/sites/iot/Resources/images/IoTDashboard/IoTDashboard_SetupPage.PNG)
 
-官方建议要更新到最新。使用 Web 界面打开设备的 Windows Update，http://<device IP>:8080/#Windows%20Update，如[http://192.168.199.223:8080/#Windows%20Update](http://192.168.199.223:8080/#Windows%20Update)
+官方建议要更新到最新。使用 Web 界面打开设备的 Windows Update，http://<device IP>:8080/#Windows%20Update，如[http://192.168.199.223:8080/#Windows%20Update](http://192.168.199.223:8080/#Windows%20Update)。
+
+然后到 ``Devices`` 中看是否出现相应的 Microphone 设置。。
+
+![Windows 10 IoT Audio](images/win10-iot-with-audio.png)
+
+**开机启动 Cortana**
+
+在首页的 ``Device Settigns`` 最下面有一个 ``Start Cortana on Boot`` 的选项。
 
 
 LICENSE
