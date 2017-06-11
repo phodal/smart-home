@@ -283,6 +283,16 @@ Raspberry Pi Cornata
 
 在首页的 ``Device Settigns`` 最下面有一个 ``Start Cortana on Boot`` 的选项。
 
+**使用 Windows IoT Remote Server 访问**：在 [http://192.168.199.223:8080/#Remote](http://192.168.199.223:8080/#Remote) 在勾上 ``Enable Windows IoT Remote Server``
+
+**设置 speechlanguage 成中文**：
+
+打开 ``Processes`` -> ``Run command``，执行：
+
+```
+IoTSettings -set region CN
+IoTSettings -set speechlanguage zh-Hans-CN
+```
 
 LICENSE
 ---
