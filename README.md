@@ -261,8 +261,20 @@ emulated_hue:
 Raspberry Pi Cornata
 ---
 
-1.下载 Windows 10 IoT Core Dashboard
-2.打开 Windows 10 IoT Core Dashboard，为 RPi 烧录镜像，如下图所示：
+官方文档：[Use Cortana Function on IoT Core](https://developer.microsoft.com/en-us/windows/iot/Docs/CortanaOnIoTCore)
+
+**下载 Windows 10 IoT Core Dashboard**
+
+下载地址：[https://developer.microsoft.com/en-us/windows/iot/docs/iotdashboard](https://developer.microsoft.com/en-us/windows/iot/docs/iotdashboard)
+
+**安装最新镜像**
+
+打开 Windows 10 IoT Core Dashboard，为 RPi 烧录镜像，如下图所示：
+
+![Windows 10 IoT Dashboard](https://az835927.vo.msecnd.net/sites/iot/Resources/images/IoTDashboard/IoTDashboard_SetupPage.PNG)
+
+官方建议要更新到最新。使用 Web 界面打开设备的 Windows Update，http://<device IP>:8080/#Windows%20Update，如[http://192.168.199.223:8080/#Windows%20Update](http://192.168.199.223:8080/#Windows%20Update)
+
 
 LICENSE
 ---
