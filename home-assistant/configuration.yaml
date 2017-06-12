@@ -1,4 +1,6 @@
-# Example configuration.yaml entry
+emulated_hue:
+  type: alexa
+
 light:
   - platform: yeelight
     devices:
