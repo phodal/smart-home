@@ -29,7 +29,7 @@
  - Yeelight
  - Raspberry Pi 2
  - Android、iOS 设备
- 
+
 Tools:
 
  - [Alexa Skill Testing Tool](https://echosim.io/)
@@ -137,7 +137,7 @@ switch:
       reciever:
         command_on: 'switch_packet on'
         command_off: 'switch_packet off'
-```        
+```
 
 ### 获取 Broadlink 配置
 
@@ -153,12 +153,13 @@ Homebridge
 
 插件：
 
- - Yeelight：homebridge-yeelight
- - 小米设备：homebridge-aqara
- - Broadlink RM：homebridge-broadlink-rm 
- - Broadlink SP: homebridge-broadlink-sp
- - Home Assistant: homebridge-homeassistant
- - ESP8266 as Wemo: homebridge-platform-wemo
+ - Yeelight：[homebridge-yeelight](https://github.com/vvpossible/homebridge_yeelight)
+ - 小米设备：[homebridge-aqara](https://github.com/snOOrz/homebridge-aqara)
+ - Broadlink RM 红外：[homebridge-broadlink-rm](https://github.com/lprhodes/homebridge-broadlink-rm)
+ - Broadlink SP 开关: [homebridge-broadlink-sp](https://github.com/smka/homebridge-broadlink-sp)
+ - Home Assistant: [homebridge-homeassistant](https://github.com/home-assistant/homebridge-homeassistant)
+
+### 安装 Homebridge
 
 编辑软件源
 
@@ -189,7 +190,7 @@ sudo apt-get install libavahi-compat-libdnssd-dev
 安装 homebridge
 
 ```
-npm install -g homebridge 
+npm install -g homebridge
 ```
 
 
@@ -211,7 +212,7 @@ sudo npm install -g homebridge-miio
 #The following settings tells homebridge where to find the config.json file and where to persist the data (i.e. pairing and others)
 HOMEBRIDGE_OPTS=-U /var/lib/homebridge
 
-# If you uncomment the following line, homebridge will log more 
+# If you uncomment the following line, homebridge will log more
 # You can display this via systemd's journalctl: journalctl -f -u homebridge
 # DEBUG=*
 ```
@@ -220,7 +221,7 @@ HOMEBRIDGE_OPTS=-U /var/lib/homebridge
 
 ```
 [Unit]
-Description=Node.js HomeKit Server 
+Description=Node.js HomeKit Server
 After=syslog.target network-online.target
 
 [Service]
@@ -246,7 +247,16 @@ systemctl enable homebridge
 systemctl start homebridge
 ```
 
-### 配置 Home Assistant
+HomeBridge 集成 Home Assistant
+---
+
+安装插件：
+
+```
+npm install -g homebridge-homeassistant
+```
+
+添加配置：
 
 ```
 "platforms": [
@@ -266,13 +276,20 @@ Amazon Echo 设置
 
 我用的是 Amazon Echo Dot 2 就是那个 Mini 版的
 
- - 安装 Yeelight Skill 
+ - 安装 Yeelight Skill
+ - 安装
 
 结合 HomeAssisatant 和 Amazon Echo
 ---
 
 文档：[https://home-assistant.io/components/alexa/](https://home-assistant.io/components/alexa/)
 
+如果只是为了打开、关闭设备，可以直接使用 ``emulated_hue`` 组件，它可以提供一个虚拟的 Philips Hue 桥。
+
+```
+emulated_hue:
+  type: alexa
+```
 
 ### 只开关设备
 
