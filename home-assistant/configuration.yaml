@@ -1,21 +1,27 @@
-emulated_hue:
-  type: alexa
 
+# Example configuration.yaml entry
 light:
   - platform: yeelight
     devices:
       192.168.199.169:
-        name: Living Room
+        name: color light
         transition: 1000
         use_music_mode: True #(defaults to False)
         save_on_change: False #(defaults to True)
+
+emulated_hue:
+  host_ip: 192.168.199.242
+
+wemo:
+  static:
+    - 192.168.199.158
 
 switch:
   - platform: broadlink
     host: 192.168.199.196
     mac: '34:EA:34:B8:2F:C6'
-    type:  sp3
-    friendly_name: 'Humo'
+    type:  sp2
+    friendly_name: 'fantasy light'
   - platform: broadlink
     host: 192.168.199.185
     mac: 'B4:43:0D:C7:3A:F9'
@@ -23,8 +29,7 @@ switch:
       reciever:
         command_on: 'switch_packet on'
         command_off: 'switch_packet off'
-    switches:
       air:
-        friendly_name: "air"
+        friendly_name: 'air'
         command_on: 'JgDYAAABKZEUNBU0FQ8VDxUPFQ8VNBU0FTQUNRQ1FBAUNBUPFQ8VNBUPFQ8VDxUPFBAVNBU0FDUUEBQQExEUEBMRFBATERQQFBAUEBMRExETERQ1FBAUNBUQExETERMRExETERMRExETERMRExETEBQRExAUNRQ1FBAUEBQQFQ8UEBQQFBAUEBQQFBAUEBQQFBAUEBQQFBAUEBQQFBAUEBQQFBAUEBQQFBAUEBQQFBATERQQFBAUEBQ1FBAUNRMRExETERMRExETNhM2EzUUNRQ1FBASEhQ1FAANBQ=='
         command_off: 'JgDYAAABKZEUNBU0FQ8VDxUPFQ8VNBU0FTQUNRQ1FBAUNBUPFQ8VNBUPFQ8VDxUPFBAVNBU0FDUUEBQQExEUEBMRFBATERQQFBAUEBMRExETERQ1FBAUNBUQExETERMRExETERMRExETERMRExETEBQRExAUNRQ1FBAUEBQQFQ8UEBQQFBAUEBQQFBAUEBQQFBAUEBQQFBAUEBQQFBAUEBQQFBAUEBQQFBAUEBQQFBATERQQFBAUEBQ1FBAUNRMRExETERMRExETNhM2EzUUNRQ1FBASEhQ1FAANBQ=='
