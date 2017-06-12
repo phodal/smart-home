@@ -35,8 +35,13 @@ Tools:
  - [Alexa Skill Testing Tool](https://echosim.io/)
  - [Raspberry Pi Burn images Tools](https://etcher.io/)
 
-ESP8266 仿真 Wemo
+ESP8266 仿真设备
 ---
+
+ - Wemo：可以被 Amazon Echo 识别
+ - Philips Hue：可以被 HomeKit 识别 ?
+
+### ESP8266 仿真 Wemo
 
 **要求**：下载 Ardunio IDE，地址： [http://www.arduino.cc/en/main/software](http://www.arduino.cc/en/main/software)
 
@@ -63,6 +68,10 @@ Setup 步骤：
  - 烧录
 
 相似项目 Arduino Esp8266 Alexa Wemo switch emulator：https://github.com/witnessmenow/esp8266-alexa-wemo-emulator
+
+### ESP8266 仿真 Philips Hue
+
+ESP8266 Hue Emulator 项目地址：[ESP8266HueEmulator](https://github.com/probonopd/ESP8266HueEmulator)
 
 小米智能插座
 ---
