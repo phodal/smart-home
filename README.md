@@ -305,6 +305,8 @@ emulated_hue:
 
 其中的 ``192.168.199.242`` 即是 Home Assistant 的服务器地址
 
+更详细的配置，如：[https://github.com/Teagan42/HomeAssistantConfig](https://github.com/Teagan42/HomeAssistantConfig)
+
 
 定制 Home Assistant
 ---
