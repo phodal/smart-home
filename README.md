@@ -76,6 +76,28 @@ Setup 步骤：
 
 ESP8266 Hue Emulator 项目地址：[ESP8266HueEmulator](https://github.com/probonopd/ESP8266HueEmulator)
 
+这个 Demo 需要这么几个库``NeoPixelBus``、``aJson``、``Time``、``NtpClient``，同时还需要修改一些相关的配置。
+
+因此直接使用这个脚本安装，比较简单：
+
+**注意**：如果是 Mac OS，需要将下面脚本中的 ``$HOME/Arduino/libraries/`` 改为 ``$HOME/Documents/Arduino/libraries/``
+
+```
+mkdir -p $HOME/Arduino/libraries/
+cd $HOME/Arduino/libraries/
+git clone --branch 2.1.4 https://github.com/Makuna/NeoPixelBus.git
+git clone https://github.com/interactive-matter/aJson.git
+git clone https://github.com/PaulStoffregen/Time.git
+git clone https://github.com/gmag11/NtpClient.git
+sed -i -e 's|#define PRINT_BUFFER_LEN 256|#define PRINT_BUFFER_LEN 4096|g'  aJson/aJSON.h
+cd -
+git clone https://github.com/probonopd/ESP8266HueEmulator.git
+sed -i -e 's|#include "/secrets.h"|//#include "/secrets.h"|g' ESP8266HueEmulator/ESP8266HueEmulator/ESP8266HueEmulator.ino
+sed -i -e 's|//const char|const char|g' ESP8266HueEmulator/ESP8266HueEmulator/ESP8266HueEmulator.ino
+```
+
+再将代码烧录到 ESP8266 上，就可以在 Homekit 看到相应的配置。
+
 小米智能插座
 ---
 
@@ -97,10 +119,7 @@ Images: [https://home-assistant.io/docs/hassbian/installation/](https://home-ass
 
 Images Downloader: [https://etcher.io/](https://etcher.io/)
 
-
-文档有问题。
-
-https://home-assistant.io/docs/installation/virtualenv/
+发现文档好像有点问题，便手动地尝试安装：
 
 ```
 pip3 install --upgrade homeassistant
@@ -112,18 +131,20 @@ pip3 install --upgrade homeassistant
 sudo -u homeassistant -H /srv/homeassistant/bin/hass
 ```
 
-并不没工作，233
+并不没工作，于是执行官方的安装脚本：
 
 ```
 curl -O https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh && sudo chown pi:pi hass_rpi_installer.sh && bash hass_rpi_installer.sh
 ```
 
-在我的 MBP 上安装尝试
+又在我的 MBP 上安装尝试
 
 ```
 pip3 install homeassistant
 hass --open-ui
 ```
+
+然后发现安装完就可以了。
 
 Home Assistant Broadlink PM PRO
 ---
@@ -151,10 +172,12 @@ switch:
 5. 执行第一步代码中的脚本，``python getBroadlinkSharedData.py``
 6. 安装``python-broadlink``，地址 ``https://github.com/mjg59/python-broadlink.git``
 
+不知道是不是我的空调问题，获取到的配置是空的。
+
 Homebridge
 ---
 
-插件：
+相关的插件：
 
  - Yeelight：[homebridge-yeelight](https://github.com/vvpossible/homebridge_yeelight)
  - 小米设备：[homebridge-aqara](https://github.com/snOOrz/homebridge-aqara)
@@ -170,7 +193,7 @@ Homebridge
 sudo vim /etc/apt/sources.list
 ```
 
-修改为：
+修改为阿里云，速度会更快一些：
 
 ```
 deb http://mirrors.aliyun.com/raspbian/raspbian/ jessie main non-free contrib
@@ -196,6 +219,7 @@ sudo apt-get install libavahi-compat-libdnssd-dev
 npm install -g homebridge
 ```
 
+安装相应的插件
 
 ```
 sudo npm install -g homebridge-yeelight
@@ -205,6 +229,8 @@ sudo npm install -g homebridge-broadlink-rm
 sudo npm install -g homebridge-platform-wemo
 sudo npm install -g homebridge-miio
 ```
+
+对应的配置在 ``home-assistant`` 目录下的 ``configuration.yaml`` 文件。
 
 ### 开机启动
 
@@ -280,7 +306,9 @@ Amazon Echo 设置
 我用的是 Amazon Echo Dot 2 就是那个 Mini 版的
 
  - 安装 Yeelight Skill
- - 安装
+ - 安装 Mijia
+
+两者需要登录小米的账号，才能授权获得控制。
 
 结合 HomeAssistant 和 Amazon Echo
 ---
