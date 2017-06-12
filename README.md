@@ -3,17 +3,20 @@
 目录
 
   * [介绍](#介绍)
-  * [ESP8266 仿真 Wemo](#esp8266-仿真-wemo)
+  * [ESP8266 仿真设备](#esp8266-仿真设备)
+     * [ESP8266 仿真 Wemo](#esp8266-仿真-wemo)
+     * [ESP8266 仿真 Philips Hue](#esp8266-仿真-philips-hue)
   * [小米智能插座](#小米智能插座)
-  * [Raspberry Pi 安装 Home Assistant](#raspberry-pi-home-assistant)
-  * [Home Assistant 集成 Broadlink PM PRO](#home-assistant-broadlink-pm-pro)
-      * [获取 Broadlink 配置](#获取-broadlink-配置)
-  * [Homebridge 设置指引](#homebridge)
-      * [开机启动](#开机启动)
-      * [配置 Home Assistant](#配置-home-assistant)
+  * [Raspberry Pi Home Assistant](#raspberry-pi-home-assistant)
+  * [Home Assistant Broadlink PM PRO](#home-assistant-broadlink-pm-pro)
+     * [获取 Broadlink 配置](#获取-broadlink-配置)
+  * [Homebridge](#homebridge)
+     * [安装 Homebridge](#安装-homebridge)
+     * [开机启动](#开机启动)
+  * [HomeBridge 集成 Home Assistant](#homebridge-集成-home-assistant)
   * [Amazon Echo 设置](#amazon-echo-设置)
   * [结合 HomeAssisatant 和 Amazon Echo](#结合-homeassisatant-和-amazon-echo)
-      * [只开关设备](#只开关设备)
+     * [只开关设备](#只开关设备)
   * [Raspberry Pi Cornata](#raspberry-pi-cornata)
 
 介绍
