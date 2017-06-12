@@ -1,5 +1,21 @@
 # Phodal's Smart Home
 
+目录
+
+  * [介绍](#介绍)
+  * [ESP8266 仿真 Wemo](#esp8266-仿真-wemo)
+  * [小米智能插座](#小米智能插座)
+  * [Raspberry Pi 安装 Home Assistant](#raspberry-pi-home-assistant)
+  * [Home Assistant 集成 Broadlink PM PRO](#home-assistant-broadlink-pm-pro)
+      * [获取 Broadlink 配置](#获取-broadlink-配置)
+  * [Homebridge 设置指引](#homebridge)
+      * [开机启动](#开机启动)
+      * [配置 Home Assistant](#配置-home-assistant)
+  * [Amazon Echo 设置](#amazon-echo-设置)
+  * [结合 HomeAssisatant 和 Amazon Echo](#结合-homeassisatant-和-amazon-echo)
+      * [只开关设备](#只开关设备)
+  * [Raspberry Pi Cornata](#raspberry-pi-cornata)
+
 介绍
 ---
 
@@ -182,8 +198,8 @@ sudo npm install -g homebridge-miio
 在 /etc/default 目录下创建 homebridge 文件，内容如下：
 
 ```
-# Defaults / Configuration options for homebridge
-# The following settings tells homebridge where to find the config.json file and where to persist the data (i.e. pairing and others)
+#Defaults / Configuration options for homebridge
+#The following settings tells homebridge where to find the config.json file and where to persist the data (i.e. pairing and others)
 HOMEBRIDGE_OPTS=-U /var/lib/homebridge
 
 # If you uncomment the following line, homebridge will log more 
@@ -305,4 +321,3 @@ LICENSE
 © 2017 A [Phodal Huang](https://www.phodal.com)'s [Idea](http://github.com/phodal/ideas).  This code is distributed under the MIT license. See `LICENSE` in this directory.
 
 [待我代码编成，娶你为妻可好](http://www.xuntayizhan.com/blog/ji-ke-ai-qing-zhi-er-shi-dai-wo-dai-ma-bian-cheng-qu-ni-wei-qi-ke-hao-wan/)
-
