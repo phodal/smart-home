@@ -282,7 +282,7 @@ Amazon Echo 设置
  - 安装 Yeelight Skill
  - 安装
 
-结合 HomeAssisatant 和 Amazon Echo
+结合 HomeAssistant 和 Amazon Echo
 ---
 
 文档：[https://home-assistant.io/components/alexa/](https://home-assistant.io/components/alexa/)
@@ -305,6 +305,11 @@ emulated_hue:
 
 其中的 ``192.168.199.242`` 即是 Home Assistant 的服务器地址
 
+
+定制 Home Assistant
+---
+
+Home Assistant RESTful API 地址：[Home Assistant API](https://home-assistant.io/developers/rest_api/)
 
 Raspberry Pi Cornata
 ---
