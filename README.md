@@ -311,6 +311,8 @@ emulated_hue:
 
 Home Assistant RESTful API 地址：[Home Assistant API](https://home-assistant.io/developers/rest_api/)
 
+![Home Assistant](images/ha_architecture.png)
+
 Raspberry Pi Cornata
 ---
 
