@@ -1,7 +1,5 @@
 # Phodal's Smart Home
 
-![Architecture](images/architecture.jpg)
-
 目录
 
   * [介绍](#介绍)
@@ -25,6 +23,35 @@
 ---
 
 视频演示地址：[腾讯视频](https://v.qq.com/x/page/r0512ss7xc9.html)
+
+
+![Architecture](images/architecture.jpg)
+
+### Amazon Echo
+
+### Home Assistant
+
+### HomeBridge
+
+> HomeKit 是由 Apple 公司推出的智能家居平台，包括iOS 上的 SDK、智能家居硬件通信协议 (HAP: HomeKit Accessory Protocol) 、以及 MFi(Made for iPhone/iPod/iPad) 认证等等。
+
+借助于 iPhone、iPad、iWatch 等设备及『家庭』应用，用户可以轻松地掌控各种 HomeKit 配件。并且可以通过设备上 Siri 应用、Homepod，直接用语音来与设备交互。
+
+当前要在 Homekit，有三种方法：
+
+ - 购买昂贵的 MFi 设备。
+ - 借助于 Home Assistant，来自建 Homekit API 服务连接设备。
+ - 模拟现有的 MFi 设备。诸如使用 ESP8266 仿真 Philip Hues。
+
+引自：[使用iOS Homekit控制树莓派](http://caoyudong.com/2017/01/10/%E4%BD%BF%E7%94%A8iOS-Homekit%E6%8E%A7%E5%88%B6%E6%A0%91%E8%8E%93%E6%B4%BE/)：HAP 协议部分是需要加入 MFi Program 才能获取文档，而且 MFi Program 无法以个人开发者身份加入。
+
+这个时候我们就需要借助于 Homebridge
+
+Homebridge 是一个用 Node.js 实现的轻量级后台，可以在家庭网络上运行，用于模拟iOS HomeKit API。 它支持插件——由社区提供的模块，这些插件能提供从 HomeKit 到 “智能家居” 设备制造商，提供的各种第三方API的基本桥梁。
+
+### 仿真设备
+
+### 项目介绍 
 
 设备：
 
