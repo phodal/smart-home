@@ -1,5 +1,7 @@
 # Phodal's Smart Home
 
+![Architecture](images/architecture.jpg)
+
 目录
 
   * [介绍](#介绍)
