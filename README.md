@@ -27,9 +27,22 @@
 
 ![Architecture](images/architecture.jpg)
 
+### 智能家居介绍 
+
+ - 设备
+ - 场景
+ - 自动化 -> IFTTT
+
 ### Amazon Echo
 
+实验表明 AWS 的服务并不是那么可靠的~~，经常出现：Your Echo dot is not connected
+
 ### Home Assistant
+
+![Home Assistant 桌面](images/ha-desktop.png)
+
+![Home Assistant 调色](images/ha-color-light.jpg)
+
 
 ### HomeBridge
 
@@ -48,6 +61,8 @@
 这个时候我们就需要借助于 Homebridge
 
 Homebridge 是一个用 Node.js 实现的轻量级后台，可以在家庭网络上运行，用于模拟iOS HomeKit API。 它支持插件——由社区提供的模块，这些插件能提供从 HomeKit 到 “智能家居” 设备制造商，提供的各种第三方API的基本桥梁。
+
+![Homekit 示例](images/homebridge-homekit.jpg)
 
 ### 仿真设备
 
