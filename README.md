@@ -17,41 +17,45 @@
 
 目录
 
-  * [基础知识篇](#基础知识篇)
-     * [智能家居](#智能家居)
-     * [智能音箱](#智能音箱)
-        * [Amazon Echo](#amazon-echo)
-     * [中心网关](#中心网关)
-        * [Home Assistant](#home-assistant)
-        * [HomeBridge](#homebridge)
-     * [设备](#设备)
-        * [通讯机制与协议](#通讯机制与协议)
-        * [旧设备中枢](#旧设备中枢)
-        * [仿真设备](#仿真设备)
-  * [ESP8266 仿真设备](#esp8266-仿真设备)
-     * [ESP8266 仿真 Wemo](#esp8266-仿真-wemo)
-     * [ESP8266 仿真 Philips Hue](#esp8266-仿真-philips-hue)
-  * [小米智能插座](#小米智能插座)
-  * [Raspberry Pi Home Assistant](#raspberry-pi-home-assistant)
-  * [Home Assistant Broadlink PM PRO](#home-assistant-broadlink-pm-pro)
-     * [获取 Broadlink 配置](#获取-broadlink-配置)
-  * [Homebridge](#homebridge-1)
-     * [安装 Homebridge](#安装-homebridge)
-     * [开机启动](#开机启动)
-  * [HomeBridge 集成 Home Assistant](#homebridge-集成-home-assistant)
-  * [Amazon Echo 设置](#amazon-echo-设置)
-  * [结合 HomeAssistant 和 Amazon Echo](#结合-homeassistant-和-amazon-echo)
-     * [只开关设备](#只开关设备)
-     * [定制命令](#定制命令)
-  * [定制 Home Assistant](#定制-home-assistant)
-  * [Raspberry Pi Cornata](#raspberry-pi-cornata)
-  * [学习用户习惯](#学习用户习惯)
-  * [工具集](#工具集)
+ * [基础知识篇](#基础知识篇)
+    * [智能家居简介](#智能家居简介)
+    * [智能音箱](#智能音箱)
+       * [Amazon Echo](#amazon-echo)
+    * [中心网关](#中心网关)
+       * [Home Assistant](#home-assistant)
+       * [HomeBridge](#homebridge)
+    * [设备](#设备)
+       * [通讯机制与协议](#通讯机制与协议)
+       * [旧设备中枢](#旧设备中枢)
+       * [仿真设备](#仿真设备)
+ * [实战设备篇](#实战设备篇)
+    * [ESP8266 仿真设备](#esp8266-仿真设备)
+       * [ESP8266 仿真 Wemo](#esp8266-仿真-wemo)
+       * [ESP8266 仿真 Philips Hue](#esp8266-仿真-philips-hue)
+    * [小米智能插座](#小米智能插座)
+ * [集成网关篇](#集成网关篇)
+    * [Raspberry Pi Home Assistant](#raspberry-pi-home-assistant)
+    * [Home Assistant Broadlink PM PRO](#home-assistant-broadlink-pm-pro)
+       * [获取 Broadlink 配置](#获取-broadlink-配置)
+    * [Homebridge](#homebridge-1)
+       * [安装 Homebridge](#安装-homebridge)
+       * [开机启动](#开机启动)
+    * [HomeBridge 集成 Home Assistant](#homebridge-集成-home-assistant)
+    * [Amazon Echo 设置](#amazon-echo-设置)
+    * [结合 HomeAssistant 和 Amazon Echo](#结合-homeassistant-和-amazon-echo)
+       * [只开关设备](#只开关设备)
+       * [定制命令](#定制命令)
+    * [定制 Home Assistant](#定制-home-assistant)
+    * [Raspberry Pi Cornata](#raspberry-pi-cornata)
+    * [学习用户习惯](#学习用户习惯)
+    * [工具集](#工具集)
 
 基础知识篇
----
+===
 
-### 智能家居
+
+智能家居简介
+---
 
 当前，我们谈论智能家居的时候，我们实现上是在讨论：家庭自动化。引自维基百科，对于智能家居的介绍[^wiki_home_automation]：
 
@@ -70,7 +74,8 @@
 
 而作为一个普通的用户，我们只需要关注便利的生活。作为一个极客，我们则关注于如何改造成需要的功能。
 
-### 智能音箱
+智能音箱
+---
 
 > 学术上有个概念是“传声器阵列”，主要由一定数目的声学传感器组成，用来对声场的空间特性进行采样并处理的系统。
 
@@ -84,7 +89,7 @@
 
 其所要主要解决远距离语音识别的问题，以保证真实场景下的语音识别率。而这些设备的主要原理，都是**将语音信号发送到服务器端，由服务器端识别，并匹配到对应的指令上**。
 
-#### Amazon Echo
+### Amazon Echo
 
 实验表明 AWS 的服务并不是那么可靠的~~，经常出现：Your Echo dot is not connected
 
@@ -92,9 +97,10 @@
 
 ![Amazon Echo 自定义 Skill](images/plex-to-alexa.png)
 
-### 中心网关
+中心网关
+---
 
-#### Home Assistant
+### Home Assistant
 
 > Home Assistant 是一个运行在 Python 3 上的开源家庭自动化平台。能跟踪和控制家庭中的所有设备，并实现自动化控制，同时还完美的支持在 Raspberry Pi 上。
 
@@ -104,7 +110,7 @@
 
 ![Home Assistant 调色-small](images/ha-color-light-small.jpg)
 
-#### HomeBridge
+### HomeBridge
 
 > HomeKit 是由 Apple 公司推出的智能家居平台，包括iOS 上的 SDK、智能家居硬件通信协议 (HAP: HomeKit Accessory Protocol) 、以及 MFi(Made for iPhone/iPod/iPad) 认证等等。
 
@@ -124,11 +130,12 @@ Homebridge 是一个用 Node.js 实现的轻量级后台，可以在家庭网络
 
 ![Homekit 示例](images/homebridge-homekit-small.jpg)
 
-### 设备
+设备
+---
 
 如果只有上面的几种中心网关，而缺少设备，那么整个智能的中心就是不完善的。而这也是最近几年来，限制智能家居发展的一个因素：找不到合适的用户需求。
 
-#### 通讯机制与协议
+### 通讯机制与协议
 
 WeMo
 
@@ -140,11 +147,11 @@ BLE
 
 红外
 
-#### 旧设备中枢
+### 旧设备中枢
 
 如小米的万能遥控、Broadlink RM Pro
 
-#### 仿真设备
+### 仿真设备
 
 设备：
 
@@ -154,6 +161,10 @@ BLE
  - Yeelight
  - Raspberry Pi 2
  - Android、iOS 设备
+
+
+实战设备篇
+===
 
 ESP8266 仿真设备
 ---
@@ -228,6 +239,9 @@ miio --discover
 ```
 npm install --save miio
 ```
+
+集成网关篇
+===
 
 Raspberry Pi Home Assistant
 ---
