@@ -385,11 +385,6 @@ Amazon Echo 设置
 
 如果只是为了打开、关闭设备，可以直接使用 ``emulated_hue`` 组件，它可以提供一个虚拟的 Philips Hue 桥。
 
-```
-emulated_hue:
-  type: alexa
-```
-
 ### 只开关设备
 
 使用 Home Assistant 的 **Emulated Hue** 组件就可以了，添加如下的配置：
@@ -403,6 +398,15 @@ emulated_hue:
 
 更详细的配置，如：[https://github.com/Teagan42/HomeAssistantConfig](https://github.com/Teagan42/HomeAssistantConfig)
 
+### 定制命令
+
+为了使用更多的功能，则需要使用将 Home Assistant 暴露到公网上——使用诸如花生壳等。（PS:由于当前家里使用的是光纤，需要光纤猫，实施上比较困难；因此，外部访问需要使用一级跌幅，暂时没有进行这方面的尝试）。
+
+随后在 [Amazon developer console](https://developer.amazon.com/)
+
+创建相应的 Alexa Skill，并添加 Endpoing：https://YOUR_HOST/api/alexa?api_password=YOUR_API_PASSWORD
+
+**必须使用 HTTPS**
 
 定制 Home Assistant
 ---
