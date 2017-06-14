@@ -41,7 +41,7 @@
 
 ![Home Assistant 桌面](images/ha-desktop.png)
 
-![Home Assistant 调色](images/ha-color-light.jpg)
+![Home Assistant 调色-small](images/ha-color-light.jpg)
 
 
 ### HomeBridge
@@ -62,7 +62,7 @@
 
 Homebridge 是一个用 Node.js 实现的轻量级后台，可以在家庭网络上运行，用于模拟iOS HomeKit API。 它支持插件——由社区提供的模块，这些插件能提供从 HomeKit 到 “智能家居” 设备制造商，提供的各种第三方API的基本桥梁。
 
-![Homekit 示例](images/homebridge-homekit.jpg)
+![Homekit 示例](images/homebridge-homekit-small.jpg)
 
 ### 仿真设备
 
