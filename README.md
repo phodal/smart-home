@@ -41,7 +41,7 @@
 
 ![Home Assistant 桌面](images/ha-desktop.png)
 
-![Home Assistant 调色-small](images/ha-color-light.jpg)
+![Home Assistant 调色-small](images/ha-color-light-small.jpg)
 
 
 ### HomeBridge
