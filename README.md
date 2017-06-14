@@ -26,6 +26,7 @@
         * [HomeBridge](#homebridge)
      * [设备](#设备)
         * [通讯机制与协议](#通讯机制与协议)
+        * [旧设备中枢](#旧设备中枢)
         * [仿真设备](#仿真设备)
   * [ESP8266 仿真设备](#esp8266-仿真设备)
      * [ESP8266 仿真 Wemo](#esp8266-仿真-wemo)
@@ -45,6 +46,7 @@
   * [定制 Home Assistant](#定制-home-assistant)
   * [Raspberry Pi Cornata](#raspberry-pi-cornata)
   * [学习用户习惯](#学习用户习惯)
+  * [工具集](#工具集)
 
 基础知识篇
 ---
@@ -72,12 +74,23 @@
 
 > 学术上有个概念是“传声器阵列”，主要由一定数目的声学传感器组成，用来对声场的空间特性进行采样并处理的系统。
 
-其所要主要解决远距离语音识别的问题，以保证真实场景下的语音识别率。
+如下图所示 Amazon Echo 的电路板：
+
+![Amazon Echo 电路板](images/echo-microphone-array.jpg)
+
+其及对应的麦克风的位置：
+
+![Amazon Echo 麦克风位置](images/amazon-echo-devices.jpg)
+
+其所要主要解决远距离语音识别的问题，以保证真实场景下的语音识别率。而这些设备的主要原理，都是**将语音信号发送到服务器端，由服务器端识别，并匹配到对应的指令上**。
 
 #### Amazon Echo
 
 实验表明 AWS 的服务并不是那么可靠的~~，经常出现：Your Echo dot is not connected
 
+自定义组件的原理，如下图所示：
+
+![Amazon Echo 自定义 Skill](images/plex-to-alexa.png)
 
 ### 中心网关
 
@@ -90,7 +103,6 @@
 ![Home Assistant 桌面](images/ha-desktop.png)
 
 ![Home Assistant 调色-small](images/ha-color-light-small.jpg)
-
 
 #### HomeBridge
 
@@ -114,7 +126,23 @@ Homebridge 是一个用 Node.js 实现的轻量级后台，可以在家庭网络
 
 ### 设备
 
+如果只有上面的几种中心网关，而缺少设备，那么整个智能的中心就是不完善的。而这也是最近几年来，限制智能家居发展的一个因素：找不到合适的用户需求。
+
 #### 通讯机制与协议
+
+WeMo
+
+ZigBee
+
+WiFi
+
+BLE
+
+红外
+
+#### 旧设备中枢
+
+如小米的万能遥控、Broadlink RM Pro
 
 #### 仿真设备
 
@@ -126,11 +154,6 @@ Homebridge 是一个用 Node.js 实现的轻量级后台，可以在家庭网络
  - Yeelight
  - Raspberry Pi 2
  - Android、iOS 设备
-
-Tools:
-
- - [Alexa Skill Testing Tool](https://echosim.io/)
- - [Raspberry Pi Burn images Tools](https://etcher.io/)
 
 ESP8266 仿真设备
 ---
@@ -482,6 +505,13 @@ IoTSettings -set speechlanguage zh-Hans-CN
 
 TBD
 
+工具集
+---
+
+Tools:
+
+ - [Alexa Skill Testing Tool](https://echosim.io/)
+ - [Raspberry Pi Burn images Tools](https://etcher.io/)
 
 LICENSE
 ---
