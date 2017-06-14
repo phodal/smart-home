@@ -1,10 +1,19 @@
-# Phodal's Smart Home
+# Phodal's Smart Home Guide
 
-视频演示：[腾讯视频](https://v.qq.com/x/page/r0512ss7xc9.html)
+> 这是一个探索性项目，旨在提供一个完整的智能家居搭建指南。
+
+视频演示地址：[腾讯视频](https://v.qq.com/x/page/r0512ss7xc9.html)
 
 架构图：
 
 ![Architecture](images/architecture.jpg)
+
+架构简介
+
+ - 使用 Home Assistant、HomeBridge 作为智能家居的核心
+ - 使用 Amazon Echo 作为语音输入工具（当前仅支持英语）
+ - 使用 iPhone 的“家庭”应用作为控制工具
+ - 可以使用任何的设备连接 Home Assistant 服务来控制应用
 
 目录
 
