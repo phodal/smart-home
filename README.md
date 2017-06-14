@@ -104,11 +104,17 @@
 
 > Home Assistant 是一个运行在 Python 3 上的开源家庭自动化平台。能跟踪和控制家庭中的所有设备，并实现自动化控制，同时还完美的支持在 Raspberry Pi 上。
 
-通过 Home Assistant 插件，它可以直接兼容各式硬件设备。
+通过 Home Assistant 插件，它可以直接兼容各式硬件设备。其原理是通过 WiFi、BLE、Zigbee、MQTT 等不同的协议，来与不同的本地设备互联，并提供一个响应式的 Web 界面、PWA 应用、iOS 应用，让用户可以轻松地与设备进行交互。
+
+其在桌面浏览器上的界面如下图所示：
 
 ![Home Assistant 桌面](images/ha-desktop.png)
 
+手机浏览器的界面如下图所示：
+
 ![Home Assistant 调色-small](images/ha-color-light-small.jpg)
+
+对于提供丰富功能（如 RGB 灯）的设备来说，它也能支持丰富的操作，即上图。同时，还能接上 Amazon Echo、HomeKit 等各式各样的中心。
 
 ### HomeBridge
 
@@ -124,11 +130,13 @@
 
 引自：[使用iOS Homekit控制树莓派](http://caoyudong.com/2017/01/10/%E4%BD%BF%E7%94%A8iOS-Homekit%E6%8E%A7%E5%88%B6%E6%A0%91%E8%8E%93%E6%B4%BE/)：HAP 协议部分是需要加入 MFi Program 才能获取文档，而且 MFi Program 无法以个人开发者身份加入。
 
-这个时候我们就需要借助于 Homebridge
+因此，这个时候我们就需要借助于 Homebridge。
 
 Homebridge 是一个用 Node.js 实现的轻量级后台，可以在家庭网络上运行，用于模拟iOS HomeKit API。 它支持插件——由社区提供的模块，这些插件能提供从 HomeKit 到 “智能家居” 设备制造商，提供的各种第三方API的基本桥梁。
 
 ![Homekit 示例](images/homebridge-homekit-small.jpg)
+
+而我们只需要有一个 iPhone 在手便可以了。
 
 设备
 ---
