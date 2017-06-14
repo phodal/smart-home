@@ -17,7 +17,16 @@
 
 目录
 
-  * [介绍](#介绍)
+  * [基础知识篇](#基础知识篇)
+     * [智能家居](#智能家居)
+     * [智能音箱](#智能音箱)
+        * [Amazon Echo](#amazon-echo)
+     * [中心网关](#中心网关)
+        * [Home Assistant](#home-assistant)
+        * [HomeBridge](#homebridge)
+     * [设备](#设备)
+        * [通讯机制与协议](#通讯机制与协议)
+        * [仿真设备](#仿真设备)
   * [ESP8266 仿真设备](#esp8266-仿真设备)
      * [ESP8266 仿真 Wemo](#esp8266-仿真-wemo)
      * [ESP8266 仿真 Philips Hue](#esp8266-仿真-philips-hue)
@@ -25,16 +34,19 @@
   * [Raspberry Pi Home Assistant](#raspberry-pi-home-assistant)
   * [Home Assistant Broadlink PM PRO](#home-assistant-broadlink-pm-pro)
      * [获取 Broadlink 配置](#获取-broadlink-配置)
-  * [Homebridge](#homebridge)
+  * [Homebridge](#homebridge-1)
      * [安装 Homebridge](#安装-homebridge)
      * [开机启动](#开机启动)
   * [HomeBridge 集成 Home Assistant](#homebridge-集成-home-assistant)
   * [Amazon Echo 设置](#amazon-echo-设置)
-  * [结合 HomeAssisatant 和 Amazon Echo](#结合-homeassisatant-和-amazon-echo)
+  * [结合 HomeAssistant 和 Amazon Echo](#结合-homeassistant-和-amazon-echo)
      * [只开关设备](#只开关设备)
+     * [定制命令](#定制命令)
+  * [定制 Home Assistant](#定制-home-assistant)
   * [Raspberry Pi Cornata](#raspberry-pi-cornata)
+  * [学习用户习惯](#学习用户习惯)
 
-介绍
+基础知识篇
 ---
 
 ### 智能家居
@@ -49,16 +61,27 @@
 
 开始实战之前，让我们先关注于当前智能家居的几个关键点：
 
- - 设备。
- - 自动化。IFTTT
- - 场景。
- - 中心网关。
+ - 设备。这些设备要么使用 WiFi，要么要使用蓝牙，方便使用手机连接上这些设备。依当前的情况来看，主要是以 WiFi 为主，在手机上配置完后，可以轻松地实现远程控制。与此同时，他们在与手机通讯的时候，会使用一些自定义的通讯规则，并且似乎很容易被破解（参见仿真器一节）。如 Philips Hue 智能灯、Wemo 开关等等，他们都已经可以被仿真，并作为 Homekit 组件使用。
+ - 自动化。自动化是指你可以定时也开关某个特定的设备，闹钟一响，便打开灯诸如此类的。
+ - 场景（规则）。与自动化稍微区别的是，场景是某个特定场合下，对一系列设备的操作，如早起，便开灯、打开窗帘，离开家，则锁门、关闭一系列用电器、开启防盗功能等等。
+ - 中心网关。当我们所使用的一系列设备拥有 WiFi 功能时，装有各种软件的手机便相当于控制中枢。而这样的设计本身是不合理的，你要在手机上安装一系列的应用。这个时候，便需要一个额外的软件作为中心，来接入这些设备，而手机上也不需要多余的额外软件。如 HomeKit、Home Assistant 就是这样的例子。
 
-### 智能音箱：Amazon Echo
+而作为一个普通的用户，我们只需要关注便利的生活。作为一个极客，我们则关注于如何改造成需要的功能。
+
+### 智能音箱
+
+> 学术上有个概念是“传声器阵列”，主要由一定数目的声学传感器组成，用来对声场的空间特性进行采样并处理的系统。
+
+其所要主要解决远距离语音识别的问题，以保证真实场景下的语音识别率。
+
+#### Amazon Echo
 
 实验表明 AWS 的服务并不是那么可靠的~~，经常出现：Your Echo dot is not connected
 
-### 开源中心网关：Home Assistant
+
+### 中心网关
+
+#### Home Assistant
 
 > Home Assistant 是一个运行在 Python 3 上的开源家庭自动化平台。能跟踪和控制家庭中的所有设备，并实现自动化控制，同时还完美的支持在 Raspberry Pi 上。
 
@@ -68,7 +91,8 @@
 
 ![Home Assistant 调色-small](images/ha-color-light-small.jpg)
 
-### 中心网关：HomeBridge
+
+#### HomeBridge
 
 > HomeKit 是由 Apple 公司推出的智能家居平台，包括iOS 上的 SDK、智能家居硬件通信协议 (HAP: HomeKit Accessory Protocol) 、以及 MFi(Made for iPhone/iPod/iPad) 认证等等。
 
@@ -88,9 +112,11 @@ Homebridge 是一个用 Node.js 实现的轻量级后台，可以在家庭网络
 
 ![Homekit 示例](images/homebridge-homekit-small.jpg)
 
-### 仿真设备
-
 ### 设备
+
+#### 通讯机制与协议
+
+#### 仿真设备
 
 设备：
 
@@ -450,6 +476,12 @@ Raspberry Pi Cornata
 IoTSettings -set region CN
 IoTSettings -set speechlanguage zh-Hans-CN
 ```
+
+学习用户习惯
+---
+
+TBD
+
 
 LICENSE
 ---
