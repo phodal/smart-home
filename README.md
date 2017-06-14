@@ -1,5 +1,11 @@
 # Phodal's Smart Home
 
+视频演示：[腾讯视频](https://v.qq.com/x/page/r0512ss7xc9.html)
+
+架构图：
+
+![Architecture](images/architecture.jpg)
+
 目录
 
   * [介绍](#介绍)
@@ -22,29 +28,38 @@
 介绍
 ---
 
-视频演示地址：[腾讯视频](https://v.qq.com/x/page/r0512ss7xc9.html)
+### 智能家居
 
+当前，我们谈论智能家居的时候，我们实现上是在讨论：家庭自动化。引自维基百科，对于智能家居的介绍[^wiki_home_automation]：
 
-![Architecture](images/architecture.jpg)
+[^wiki_home_automation]: https://en.wikipedia.org/wiki/Home_automation
 
-### 智能家居介绍 
+> Home automation or smart home (also known as domotics) is building automation for the home. 
 
- - 设备
- - 场景
- - 自动化 -> IFTTT
+随着机器学习和深度学习等 AI 技术的进一步普及，这一点（智能化）在最近几年里，应该会发生一些剧烈的变化。而无论如何，我可不太希望我要被机器催着起床。
 
-### Amazon Echo
+开始实战之前，让我们先关注于当前智能家居的几个关键点：
+
+ - 设备。
+ - 自动化。IFTTT
+ - 场景。
+ - 中心网关。
+
+### 智能音箱：Amazon Echo
 
 实验表明 AWS 的服务并不是那么可靠的~~，经常出现：Your Echo dot is not connected
 
-### Home Assistant
+### 开源中心网关：Home Assistant
+
+> Home Assistant 是一个运行在 Python 3 上的开源家庭自动化平台。能跟踪和控制家庭中的所有设备，并实现自动化控制，同时还完美的支持在 Raspberry Pi 上。
+
+通过 Home Assistant 插件，它可以直接兼容各式硬件设备。
 
 ![Home Assistant 桌面](images/ha-desktop.png)
 
 ![Home Assistant 调色-small](images/ha-color-light-small.jpg)
 
-
-### HomeBridge
+### 中心网关：HomeBridge
 
 > HomeKit 是由 Apple 公司推出的智能家居平台，包括iOS 上的 SDK、智能家居硬件通信协议 (HAP: HomeKit Accessory Protocol) 、以及 MFi(Made for iPhone/iPod/iPad) 认证等等。
 
@@ -66,7 +81,7 @@ Homebridge 是一个用 Node.js 实现的轻量级后台，可以在家庭网络
 
 ### 仿真设备
 
-### 项目介绍 
+### 设备
 
 设备：
 
