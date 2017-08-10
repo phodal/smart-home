@@ -25,7 +25,8 @@ boolean wifiConnected = false;
 UpnpBroadcastResponder upnpBroadcastResponder;
 
 Switch *tv = NULL;
-Switch *mi = NULL;
+Switch *box = NULL;
+Switch *air = NULL;
 
 void setup()
 {
@@ -40,11 +41,13 @@ void setup()
     // Define your switches here. Max 14
     // Format: Alexa invocation name, local port no, on callback, off callback
     tv = new Switch("tv", 80, tvOn, tvOff);
-    mi = new Switch("mi", 81, miOn, miOff);
+    box = new Switch("box", 81, boxOn, boxOff);
+    air = new Switch("conditioning", 82, airOn, airOff);
 
     Serial.println("Adding switches upnp broadcast responder");
     upnpBroadcastResponder.addDevice(*tv);
-    upnpBroadcastResponder.addDevice(*mi);
+    upnpBroadcastResponder.addDevice(*box);
+    upnpBroadcastResponder.addDevice(*air);
   }
 }
  
@@ -54,7 +57,8 @@ void loop()
       upnpBroadcastResponder.serverLoop();
       
       tv->serverLoop();
-      mi->serverLoop();
+      box->serverLoop();
+      air->serverLoop();
 	 }
 }
 
@@ -66,12 +70,21 @@ void tvOff() {
   httpServer("tvoff");
 }
 
-void miOn() {
+void boxOn() {
   httpServer("mion");
 }
 
-void miOff() {
+void boxOff() {
   httpServer("mioff");
+}
+
+
+void airOn() {
+  httpServer("airon");
+}
+
+void airOff() {
+  httpServer("airoff");
 }
 
 void httpServer(String command) {
@@ -80,7 +93,7 @@ void httpServer(String command) {
         Serial.print("[HTTP] begin...\n");
         // configure traged server and url
         //http.begin("https://192.168.1.12/test.html", "7a 9c f4 db 40 d3 62 5a 6e 21 bc 5c cc 66 c8 3e a1 45 59 38"); //HTTPS
-        http.begin("http://192.168.199.170:8080/sendComand/" + command); //HTTP
+        http.begin("http://192.168.199.170:8080/sendCommand/" + command); //HTTP
 
         Serial.print("[HTTP] GET...\n");
         // start connection and send HTTP header
