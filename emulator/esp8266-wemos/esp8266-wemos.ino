@@ -1,5 +1,6 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
+#include <ESP8266HTTPClient.h>
 #include <WiFiUdp.h>
 #include <functional>
 #include "switch.h"
@@ -16,15 +17,15 @@ void kitchenLightsOn();
 void kitchenLightsOff();
 
 // Change this before you flash
-const char* ssid = "Aruna";
-const char* password = "*****";
+const char* ssid = "Phodal";
+const char* password = "Hug940217";
 
 boolean wifiConnected = false;
 
 UpnpBroadcastResponder upnpBroadcastResponder;
 
-Switch *office = NULL;
-Switch *kitchen = NULL;
+Switch *tv = NULL;
+Switch *mi = NULL;
 
 void setup()
 {
@@ -38,12 +39,12 @@ void setup()
     
     // Define your switches here. Max 14
     // Format: Alexa invocation name, local port no, on callback, off callback
-    office = new Switch("office lights", 80, officeLightsOn, officeLightsOff);
-    kitchen = new Switch("kitchen lights", 81, kitchenLightsOn, kitchenLightsOff);
+    tv = new Switch("tv", 80, tvOn, tvOff);
+    mi = new Switch("mi", 81, miOn, miOff);
 
     Serial.println("Adding switches upnp broadcast responder");
-    upnpBroadcastResponder.addDevice(*office);
-    upnpBroadcastResponder.addDevice(*kitchen);
+    upnpBroadcastResponder.addDevice(*tv);
+    upnpBroadcastResponder.addDevice(*mi);
   }
 }
  
@@ -52,25 +53,52 @@ void loop()
 	 if(wifiConnected){
       upnpBroadcastResponder.serverLoop();
       
-      kitchen->serverLoop();
-      office->serverLoop();
+      tv->serverLoop();
+      mi->serverLoop();
 	 }
 }
 
-void officeLightsOn() {
-    Serial.print("Switch 1 turn on ...");
+void tvOn() {
+  httpServer("tvon");
 }
 
-void officeLightsOff() {
-    Serial.print("Switch 1 turn off ...");
+void tvOff() {
+  httpServer("tvoff");
 }
 
-void kitchenLightsOn() {
-    Serial.print("Switch 2 turn on ...");
+void miOn() {
+  httpServer("mion");
 }
 
-void kitchenLightsOff() {
-  Serial.print("Switch 2 turn off ...");
+void miOff() {
+  httpServer("mioff");
+}
+
+void httpServer(String command) {
+        HTTPClient http;
+
+        Serial.print("[HTTP] begin...\n");
+        // configure traged server and url
+        //http.begin("https://192.168.1.12/test.html", "7a 9c f4 db 40 d3 62 5a 6e 21 bc 5c cc 66 c8 3e a1 45 59 38"); //HTTPS
+        http.begin("http://192.168.199.170:8080/sendComand/" + command); //HTTP
+
+        Serial.print("[HTTP] GET...\n");
+        // start connection and send HTTP header
+        int httpCode = http.GET();
+
+        // httpCode will be negative on error
+        if(httpCode > 0) {
+            // HTTP header has been send and Server response header has been handled
+            Serial.printf("[HTTP] GET... code: %d\n", httpCode);
+
+            // file found at server
+            if(httpCode == HTTP_CODE_OK) {
+                String payload = http.getString();
+                Serial.println(payload);
+            }
+        } else {
+            Serial.printf("[HTTP] GET... failed, error: %s\n", http.errorToString(httpCode).c_str());
+        }
 }
 
 // connect to wifi – returns true if successful or false if not
