@@ -492,6 +492,111 @@ Home Assistant RESTful API 地址：[Home Assistant API](https://home-assistant.
 
 ![Home Assistant](images/ha_architecture.png)
 
+
+结合 ESP8266 + Broadlink + Amazon Echo
+---
+
+在上面我们说到，ESP8266 可以模拟成 Wemo 设备，而 Wemo 可以直接由 Amazon Echo 识别。但是 Broadlink 直接与 Amazon Echo 配合，不可避免地出现了一些问题。在看到了[python-broadlink](https://github.com/mjg59/python-broadlink) 库，便想着是不是直接拿 flask 结合一下 broadlink 就可以实现一个简单的 HTTP 服务。随后，ESP8266 只需要几个请求吧，就能直接对家电进行控制。
+
+### Broadlink HTTP Server
+
+为了避免自己造底层的轮子，想在 GitHub 上寻觅了一番，找到 [broadlink-http-rest](https://github.com/radinsky/broadlink-http-rest) 项目，修改成适合自己需求的代码，放在了 GitHub 上：[https://github.com/phodal/broadlink-http-rest](https://github.com/phodal/broadlink-http-rest)
+
+实际上，我们所需要做的就是，修改自己的 ``settings.py`` 文件。并且这部分的内容可以直接由 API 来生成。搭建之前，先下载上面的代码：
+
+```
+git clone https://github.com/phodal/broadlink-http-rest
+```
+
+然后安装依赖：
+
+```
+pip install -r requirements.txt
+```
+
+再运行起服务: ``python server.py``
+
+然后访问：[http://localhost:8080/learnCommand/tvon](http://localhost:8080/learnCommand/tvon)，就可以直接学习红外指令。
+
+接着通过访问：[http://localhost:8080/sendCommand/tvon](http://localhost:8080/sendCommand/tvon)，就可以发送相应的红外编码。
+
+同时，它会在 ``settings.py`` 下生成相应的 ``tvon`` 命令及编码，如下：
+
+```
+[Commands]
+tvon = 9bff369b8c9f94d6a2ec86e2b83749670662283a956794365cfb8ecf42d42cc41256a408c128a0bcbe56e6050b561e1436c998299ff9adc8a17d8350d55341e83eca9d5bb905472e5a23bc035f94dab944af2de6513b09502c17b385fca66090
+```
+
+同样的，对于关闭设备来说，我们就需要使用 tvoff。
+
+以此类推，我们就可以录入所有的设备。
+
+### 使用 ESP8266 控制 Broadlink
+
+打开 ``smart-home/emulator/esp8266-wemos/esp8266-wemos.ino`` 文件，写个负责发请求的方法：
+
+```
+void httpServer(String command) {
+    HTTPClient http;
+
+    Serial.print("[HTTP] begin...\n");
+    // configure traged server and url
+    //http.begin("https://192.168.1.12/test.html", "7a 9c f4 db 40 d3 62 5a 6e 21 bc 5c cc 66 c8 3e a1 45 59 38"); //HTTPS
+    http.begin("http://192.168.199.170:8080/sendCommand/" + command); //HTTP
+
+    Serial.print("[HTTP] GET...\n");
+    // start connection and send HTTP header
+    int httpCode = http.GET();
+
+    // httpCode will be negative on error
+    if(httpCode > 0) {
+        // HTTP header has been send and Server response header has been handled
+        Serial.printf("[HTTP] GET... code: %d\n", httpCode);
+
+        // file found at server
+        if(httpCode == HTTP_CODE_OK) {
+            String payload = http.getString();
+            Serial.println(payload);
+        }
+    } else {
+        Serial.printf("[HTTP] GET... failed, error: %s\n", http.errorToString(httpCode).c_str());
+    }
+}
+```
+
+对应的，我们只需要写相应的控制逻辑：
+
+```
+void tvOn() {
+      httpServer("tvon");
+}
+
+void tvOff() {
+      httpServer("tvoff");
+}
+
+void boxOn() {
+      httpServer("mion");
+}
+
+void boxOff() {
+      httpServer("mioff");
+}
+
+
+void airOn() {
+      httpServer("airon");
+}
+
+void airOff() {
+      httpServer("airoff");
+}
+```
+
+便可以使用 ESP8266 控制 Broadlink。
+
+最后，便是烧录程序，然后直接使用 Amazon Echo 控制。
+
 Raspberry Pi Cornata
 ---
 
